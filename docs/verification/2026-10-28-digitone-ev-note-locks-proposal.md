@@ -33,4 +33,6 @@ Not known: a MIDI note's event (type, flags, lock list), whether a trigless trig
 
 None. No Digitone mod patches or reads this site. `digitables` patches the voice start (`ev_voice_on`) only.
 
+Where it lands: the module guide now puts a new hook into the machine's Modwerk base, started from the pinned core's source, and not into an upstream core release ([the guide](../module-guides/README.md#propose-a-hook-on-the-digitakt-digitone-or-digitakt-ii)). The Digitone's base is not started ([Modwerk stack](../../sdk/machines/digitone/README.md#modwerk-stack)), so this entry waits for it, and no unit can run the hook before it. The only 1.44 core pinned today is `core-dn1-2.0a`, which has no voice or lock hooks.
+
 Hook indices are an ABI: a released one is never renumbered, and this entry is appended after the existing hooks.
